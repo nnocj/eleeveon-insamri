@@ -1,0 +1,99 @@
+/* =========================
+   CHECKOUT PAGE STYLES
+========================= */
+
+.checkout-container {
+  padding: 2rem 1rem;
+}
+
+.checkout-form {
+  max-width: 700px;
+  margin: auto;
+}
+
+.checkout-form h2 {
+  font-family: var(--font-headline);
+  color: var(--dark-grey);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Fieldsets */
+.checkout-form fieldset {
+  border: 1px solid var(--light-grey);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.checkout-form legend {
+  font-family: var(--font-headline);
+  color: var(--tertiary-color);
+  padding: 0 0.5rem;
+}
+
+/* Labels */
+.checkout-form label {
+  display: block;
+  font-size: var(--small-font);
+  margin-bottom: 1rem;
+}
+
+/* Inputs */
+.checkout-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--light-grey);
+  font-size: var(--font-base);
+  font-family: var(--font-body);
+}
+
+/* Input focus */
+.checkout-form input:focus {
+  outline: none;
+  border: 1px solid var(--primary-color);
+}
+
+/* Order Summary Box */
+.order-summary {
+  border: 2px solid var(--primary-color);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #fafafa;
+}
+
+.order-summary h2 {
+  font-family: var(--font-headline);
+  font-size: var(--large-font);
+  margin-bottom: 1rem;
+  color: var(--dark-grey);
+}
+
+.order-summary p {
+  padding: 0.25rem 0;
+  font-size: var(--small-font);
+}
+
+.order-summary p:last-child {
+  font-weight: bold;
+  font-size: var(--large-font);
+  color: var(--tertiary-color);
+}
+
+/* Checkout Button override (keeps my base button style) */
+.checkout-form button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Responsive improvement */
+@media screen and (min-width: 700px) {
+  .checkout-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .checkout-form {
+    width: 100%;
+  }
+}

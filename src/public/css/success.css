@@ -1,0 +1,51 @@
+/* =========================
+   SUCCESS PAGE
+========================= */
+
+.successPage {
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+
+  .checkout-form {
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+    background-color: #fafafa;
+    box-shadow: 1px 1px 6px var(--light-grey);
+
+    h2 {
+      font-family: var(--font-base);
+      font-size: 2rem;
+      color: var(--secondary-color);
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: var(--large-font);
+      color: var(--dark-grey);
+      padding: 0.5rem 0;
+    }
+  }
+}
+
+
+/* Responsive adjustments */
+@media screen and (min-width: 500px) {
+  .successPage {
+
+    .checkout-form {
+      padding: 3rem;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
