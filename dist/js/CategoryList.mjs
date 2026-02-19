@@ -1,45 +1,76 @@
-/**I believe that naming is very important. In this case I belive strongly that the name should have
- * been category list because the class is respoonsible for rendering a list of categories.
- * I will reference this in my insamri app of this course.
- */
-import { renderListWithTemplate } from "./utils.mjs";
+import { renderListWithTemplate, getData } from "./utils.mjs";
 
-export default class  CategoryList {
-
-
-    constructor(category, dataSource, listElement) {
-    this.category = category;
-    this.product = {};
+export default class CategoryList {
+  constructor(dataSource, categoryListElement, onCategoryClick) {
     this.dataSource = dataSource;
-    this.listElement = listElement;
+    this.categoryListElement = categoryListElement;
+    this.onCategoryClick = onCategoryClick;
   }
 
   async init() {
-      // use the datasource to get the list of categories from the json/category. 
-      const list = await this.dataSource.getData();
-      console.log("category info", this.category);
+    try {
+      const meals = await getData(this.dataSource);
 
-      // render category list
-      this.renderList(list);
-  
+      const categoriesMap = new Map();
+
+      meals.forEach((meal) => {
+        const key = meal.strCategory?.toLowerCase();
+        if (key && !categoriesMap.has(key)) {
+          categoriesMap.set(key, {
+            name: meal.strCategory,
+            thumb: meal.strMealThumb,
+          });
+        }
+      });
+
+      const uniqueCategories = Array.from(categoriesMap.values())
+        .sort((a, b) => a.name.localeCompare(b.name));
+
+      this.renderList(uniqueCategories);
+    } catch (error) {
+      console.error("Error loading categories:", error);
     }
-  
+  }
 
+  renderList(categories) {
+    const template = (category) => `
+      <li class="category-nav-item">
+        <a href="#" 
+           class="category-link" 
+           data-category="${category.name.toLowerCase()}">
+          ${category.name}
+          ${
+            category.thumb
+              ? `<img src="${category.thumb}" 
+                      alt="Image of ${category.name}" 
+                      width="50">`
+              : ""
+          }
+        </a>
+      </li>
+    `;
 
-    renderList(list){
-        renderListWithTemplate(categoryNavTemplate, this.listElement, list);
-    }
+    renderListWithTemplate(
+      template,
+      this.categoryListElement,  // ✅ FIXED
+      categories,
+      "afterbegin",
+      true
+    );
+
+    // Attach click listeners AFTER rendering
+    this.categoryListElement
+      .querySelectorAll(".category-link")
+      .forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const selectedCategory = link.dataset.category;
+
+          if (this.onCategoryClick) {
+            this.onCategoryClick(selectedCategory);
+          }
+        });
+      });
+  }
 }
-
-//productcard template
-function categoryNavTemplate(category) {
-    const categoryName = category.Name.toLowerCase();
- 
-    return `<li class="category-nav-item">
-                <a href="#" class="${categoryName}">${categoryName}
-                    <img src="${category.Image}" alt="Image of ${category.Name}" width="50">
-                </a>
-            </li>`
-        } //category_pages?category=${category.Id}
-  
- 

@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Eleeveon Insamri | Course Page</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/course.css"/>
+    <link rel="stylesheet" href="../css/spin.css"/>
+    <link rel="icon" type="image/png" href="../images/logos/eleeveon-main-log-medium.png" width="32" />
+
+    <script src="../js/Course.js" type="module"></script>
+  </head>
+
+  <body>
+    <header class="divider" id="main-header">
+      
+          
+    </header>
+
+    <main class="divider">
+      <section class="course-detail">
+
+        <h2 class="divider"></h2>
+
+        <!-- Course Video -->
+        <div class="course-video" id="courseVideoContainer">
+          <!-- YouTube iframe will be injected here dynamically -->
+        </div>
+
+
+        <!-- Download Course Button -->
+        <div class="course-download">
+          <button id="downloadCourseBtn">Download Course</button>
+        </div>
+
+        <!-- Course Description + Assignment Form -->
+        <div class="course-description divider">
+          <h3>Course Description & Assignment Submission</h3>
+          <p></p>
+
+          <form id="assignmentForm">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" required />
+
+            <label for="assignmentFile">
+              Upload a Document, Audio, or Video (max 15MB) of you completing the assignment
+            </label>
+            <input 
+              type="file" 
+              id="assignmentFile" 
+              accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,audio/*,video/*" 
+              required />
+        
+
+            <button type="submit">Submit Assignment</button>
+          </form>
+        </div>
+
+        <!-- Course Assessment Dialog -->
+        <div class="course-assessment">
+          <h3>Course Assessment</h3>
+          <p>
+            Your assignment will be reviewed. Once approved, your assessment
+            status will be updated.
+          </p>
+        </div>
+
+      </section>
+    </main>
+
+
+    <footer id="main-footer"></footer>
+  </body>
+</html>

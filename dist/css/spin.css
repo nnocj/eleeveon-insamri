@@ -1,0 +1,18 @@
+/*For assignment submission*/
+/* Inline spinner */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f0a868; /* primary color */
+  border-top: 3px solid #525b0f; /* secondary color */
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+  margin-left: 0.5em;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
