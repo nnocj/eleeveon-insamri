@@ -84,7 +84,7 @@ if (searchInput) {
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`;
 
       // Show skeleton loading animation
-      showSkeletonCards(courseListElement, 6);
+      showSkeletonCards(courseListElement, 24);
 
       // Recreate CourseList and categories with new data source
       courseList = new CourseList(dataSource, courseListElement);
@@ -105,7 +105,7 @@ if (searchInput) {
 // 3. Load categories
 // ------------------------------------------
 async function initApp() {
-  showSkeletonCards(courseListElement, 6);
+  showSkeletonCards(courseListElement, 24);
 
   await courseList.init();
   await categoryList.init();

@@ -26,7 +26,7 @@ form.addEventListener("submit", async (e) => {
 }
 
 // this is to hold my course list in place before everything is loaded, to avoid layout shift and give a better user experiene.
-export function showSkeletonCards(container, count = 6) {
+export function showSkeletonCards(container, count = 24) {
   container.innerHTML = "";
   for (let i = 0; i < count; i++) {
     const li = document.createElement("li");
