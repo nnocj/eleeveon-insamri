@@ -5,6 +5,28 @@ export function qs(selector, parent = document) {
 // or a more concise version if you are into that sort of thing:
 // export const qs = (selector, parent = document) => parent.querySelector(selector);
 
+// utils.mjs
+
+/**
+ * Fetch data from an API and return the array of items.
+ * For the meals API, it returns data.meals
+ * @param {string} apiUrl - The API endpoint to fetch
+ * @returns {Promise<Array>} - Array of items (meals or courses)
+ */
+export async function getData(apiUrl) {
+  try {
+    const res = await fetch(apiUrl);
+    if (!res.ok) throw new Error(`Network error: ${res.status}`);
+    const data = await res.json();
+    // Check for meals array or generic Result array
+    return data.meals || data.Result || [];
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
+}
+
+
 // retrieve data from localstorage
 export function getLocalStorage(key) {
   const data = localStorage.getItem(key);
@@ -120,9 +142,30 @@ export async function loadProductList(list) {
             </li>`
           parentElement = productTemplate;
        })
-       
-  
 }
 
- 
+ // ============================
+// Converts a media URL to Base64 but youtube wont be saved only links
+// ============================
+export async function prepareMedia(url) {
+  if (url.endsWith(".mp4") || url.endsWith(".mp3") || url.endsWith(".webm")) {
+    const res = await fetch(url);
+    const blob = await res.blob();
+    const base64 = await blobToBase64(blob);
+    return { base64, fileType: blob.type, url }; // url as backup
+  }
+  // Otherwise fallback to URL only
+  return { base64: "", fileType: "", url };
+}
+
+function blobToBase64(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+
   

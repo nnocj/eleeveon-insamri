@@ -64,35 +64,7 @@ p {
   position: relative;
 }
 
-.hero .logo {
-  position: absolute;
-  left: calc(50% - 60px);
-  bottom: -15px;
-  background-color: white;
-}
 
-.logo--square {
-  font-size: var(--small-font);
-  width: 110px;
-  height: 80px;
-
-  flex-direction: column;
-  align-items: flex-end;
-  box-shadow: 1px 1px 4px var(--light-grey);
-  justify-content: center;
-  align-items: center;
-  line-height: 1;
-}
-
-.logo--square img {
-  width: 90px;
-  height: 90px;
-  margin-top: -1.3em;
-}
-
-.logo--square > div {
-  margin-top: -1.7em;
-}
 
 /* utility classes */
 .highlight {
@@ -173,25 +145,54 @@ button {
   text-align: center;
 }
 
-.products {
-  margin-top: 2rem;
-  padding: 1rem;
+
+/*SerachInput*/
+
+.mission {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  line-height: 1.3;
+  width: 100%;
+  background-color: var(--dark-grey);
+  color: var(--light-grey);
+  opacity: 0.8;
 }
 
-.product-list {
+#searchInput {
+  position: absolute;
+  top: 5rem;
+  left: 25%;
+
+  line-height: 2.5;
+  width: 50%;
+  padding: 0.5rem;
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+}
+
+
+.courses {
+  margin-top: 2rem;
+  padding: 1rem;
+
+}
+
+.course-list {
   display: flex;
   flex-flow: row wrap;
   list-style-type: none;
   justify-content: center;
 }
 
-.product-list a {
+.course-list a {
   text-decoration: none;
   color: var(--dark-grey);
 }
 
-/* Styles for product lists */
-.product-card {
+/* Styles for course lists */
+.course-card {
   flex: 1 1 45%;
   margin: 0.25em;
   padding: 0.5em;
@@ -199,9 +200,9 @@ button {
   max-width: 250px;
 }
 
-.product-card h2,
-.product-card h3,
-.product-card p {
+.course-card h2,
+.course-card h3,
+.course-card p {
   margin: 0.5em 0;
 }
 
@@ -215,13 +216,13 @@ button {
 
 /* End product list card */
 
-.product-detail {
+.course-detail {
   padding: 1em;
   max-width: 500px;
   margin: auto;
 }
 
-.product-detail img {
+.course-detail img {
   width: 100%;
 }
 

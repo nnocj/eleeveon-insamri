@@ -1,0 +1,47 @@
+.course-video {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin: 1rem 0;
+}
+
+.course-download {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.course-description {
+  padding: 1rem 0;
+}
+
+.course-description h3,
+.course-assessment h3 {
+  font-family: var(--font-headline);
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.course-description form {
+  display: flex;
+  flex-direction: column;
+}
+
+.course-description label {
+  margin-top: 0.5rem;
+  font-size: var(--small-font);
+}
+
+.course-description input {
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--light-grey);
+}
+
+.course-description button {
+  margin-top: 1rem;
+}
+
+.course-assessment {
+  padding: 1rem 0;
+}
+
